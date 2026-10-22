@@ -33,8 +33,6 @@ function fillMealSelect() {
   $("meal").value = currentMealId ?? "";
 }
 
-
-
 function showMeal() {
   const meal = meals.find(m => m.id === currentMealId);
   if (!meal) { $("rows").innerHTML = ""; setStatus(""); return; }
@@ -64,8 +62,6 @@ function init() {
     showMeal();
   });
   $("lang").addEventListener("click", toggleLanguage);
-  $("meal").disabled = false;
-  $("lang").disabled = false;
   setStatus(`${meals.length} meals, ${ingredientsById.size} ingredients, ${RECIPES.length} recipes.`);
 }
 
