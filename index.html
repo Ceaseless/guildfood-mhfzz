@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guild Food Recipes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1>Guild Food Recipes <button type="button" id="lang" disabled aria-pressed="false">日本語</button></h1>
+   
+    <div class="bar">
+      <label>Meal
+        <select id="meal" disabled></select>
+      </label>      
+    </div>
+
+    <p id="status" role="status"></p>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="base">Base ingredient</th>
+            <th>Auxiliary 1</th>
+            <th>Auxiliary 2</th>
+            <th>Auxiliary 3</th>
+            <th class="num">Difficulty</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+  <script src="data/data.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+
+</html>
