@@ -33,6 +33,8 @@ function fillMealSelect() {
   $("meal").value = currentMealId ?? "";
 }
 
+
+
 function showMeal() {
   const meal = meals.find(m => m.id === currentMealId);
   if (!meal) { $("rows").innerHTML = ""; setStatus(""); return; }
@@ -50,7 +52,7 @@ function showMeal() {
 function toggleLanguage() {
   lang = lang === "en" ? "ja" : "en";
   document.documentElement.lang = lang;
-  $("lang").textContent = lang === "en" ? "日本語" : "ENG";
+  $("lang").textContent = lang === "en" ? "JPN" : "ENG";
   $("lang").setAttribute("aria-pressed", String(lang === "ja"));
   fillMealSelect();
   showMeal();
@@ -69,4 +71,3 @@ function init() {
 
 init();
 fillMealSelect();
-
