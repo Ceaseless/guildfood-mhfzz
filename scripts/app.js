@@ -1,46 +1,3 @@
-// UI text. Values are strings, or functions for text with variables.
-const STRINGS = {
-  en: {
-    title: "Guild Food Recipes",
-    meal: "Meal",
-    selectMeal: "Select a meal…",
-    toggle: "JP",
-    base: "Base ingredient",
-    aux1: "Auxiliary 1",
-    aux2: "Auxiliary 2",
-    aux3: "Auxiliary 3",
-    finalDiff: "Difficulty",
-    greatFail: "Great Failure",
-    fail: "Failure",
-    succ: "Success",
-    greatSucc: "Great Success",    
-    unknown: id => `Unknown (${id})`,
-    summary: (m, i, r) => `${m} meals, ${i} ingredients, ${r} recipes.`,
-    count: (n, name) => `${n} recipe${n === 1 ? "" : "s"} for ${name}.`,
-    none: name => `No recipes found for ${name}.`,
-  },
-  ja: {
-    title: "猟団料理",
-    meal: "料理名",
-    selectMeal: "メニューを選択…",
-    toggle: "EN",
-    base: "基本食材",
-    aux1: "補助食材1",
-    aux2: "補助食材2",
-    aux3: "補助食材3",
-    finalDiff: "料理難易度",
-    greatFail: "大失敗",
-    fail: "失敗",
-    succ: "成功",
-    greatSucc: "大成功", 
-    unknown: id => `不明 (${id})`,
-    summary: (m, i, r) => `メニュー ${m}件、食材 ${i}件、レシピ ${r}件`,
-    count: (n, name) => `${name}のレシピ ${n}件`,
-    none: name => `${name}のレシピはありません。`,
-  },
-};
-
-
 // jQuery snippet
 const $ = id => document.getElementById(id);
 
@@ -60,12 +17,12 @@ for (const list of recipesByMeal.values()) list.sort((a, b) => a.finalDiff - b.f
 let lang = "en";          // "en" or "ja"
 let currentMealId = null; // selected meal id (0 is yaminabe, so we have to use null)
 
-const t = key => STRINGS[lang][key];
+const translated = key => STRINGS[lang][key];
  
 function applyLanguage() {
   document.documentElement.lang = lang;
-  document.title = t("title");
-  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.title = translated("title");
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = translated(el.dataset.i18n); });
 }
 
 
@@ -88,7 +45,7 @@ function makeSkillCell(id) {
 
 function fillMealSelect() {
   const meal = $("meal");
-  meal.innerHTML = `<option value="">${t("selectMeal")}</option>` +
+  meal.innerHTML = `<option value="">${translated("selectMeal")}</option>` +
     meals.map(m => `<option value="${m.id}">${label(m)}</option>`).join("");
   meal.value = currentMealId ?? "";
 }
@@ -103,7 +60,7 @@ function showRecipes() {
     <td class="num final">${r.finalDiff}</td>
     ${r.skills.map(makeSkillCell).join("")}
   </tr>`).join("");
-  setStatus(list.length ? t("count")(list.length, name) : t("none")(name));
+  setStatus(list.length ? translated("count")(list.length, name) : translated("none")(name));
 }
 
 function toggleLanguage() {

@@ -7,7 +7,8 @@
   --accent: #2f6f5e;
   --accent-soft: #e3f0ec;
   --error: #a2452b;
-  --highlight: #b7fa3a;
+  --highlight: #87bb28;
+  --link: #4c79da;
   color-scheme: light;
 }
 
@@ -22,6 +23,7 @@
     --accent-soft: #0d161b;
     --error: #e08a6d;
     --highlight: #b7fa3a;
+    --link: #5485ee;
     color-scheme: dark;
   }
 }
@@ -69,7 +71,7 @@ h1 {
 }
 
 a {
-  color: #5485ee;
+  color: var(--link)
 }
 
 a:link {
