@@ -43,9 +43,9 @@ const STRINGS = {
 // This is easier than loading from files (Probably should be objects though)
 // SKILLS:      [id, englishName, japaneseName]
 // MEALS:       [id, englishName, japaneseName]
+// MEAL_HINTS:  [id, englishHint, japaneseHint]
 // INGREDIENTS: [id, smallEndianHex, bigEndianHex, englishName, japaneseName]
 // RECIPES:     [mealId, baseId, aux1Id, aux2Id, aux3Id, mealDifficulty, baseModifier, finalDifficulty, greatFailure, failure, success, greatSuccess]
-// Columns: ID, Name, JPName
 const SKILLS = [
   [0, "Random", "ランダム"],
   [1, "Paralysis Halved", "麻痺半減"],
@@ -56,9 +56,9 @@ const SKILLS = [
   [8, "Stun Negated", "気絶無効"],
   [10, "Poison Halved", "毒半減"],
   [11, "Poison Negated", "毒無効"],
-  [21, "Health+10", "体力+10 "],
-  [22, "Health+20", "体力+20 "],
-  [23, "Health+30", "体力+30 "],
+  [21, "Health+10", "体力+10"],
+  [22, "Health+20", "体力+20"],
+  [23, "Health+30", "体力+30"],
   [73, "Hunger Halved", "はらへり半減"],
   [74, "Hunger Negated", "はらへり無効"],
   [76, "Hunger Doubled", "はらへり倍加【大】"],
@@ -146,6 +146,32 @@ const MEALS = [
   [21, "Fried Buns", "おしくら揚げ饅頭"],
   [22, "Latchberry Cutlet", "バクレツカツレツ"]
 ];
+
+const MEAL_HINTS = [
+  [0, "Random", "ランダム"],
+  [1, "Rage", "怒"],
+  [2, "Unaffected","三界の護り"],
+  [3, "Luck","運気"],
+  [4, "Hearing", "聴覚保護"],
+  [5, "Caring","いたわり"],
+  [6, "Adrenaline","底力"],
+  [7, "Wind Res","風圧"],
+  [8, "Stamina","スタミナ"],
+  [9, "Protection","審判"],
+  [10, "Hunger","はらへり"],
+  [11, "Wide-Area","広域"],
+  [12, "Terrain","地形"],
+  [13, "Whim","気まぐれ"],
+  [14, "Paralysis Res","麻痺"],
+  [15, "Sleep Res","睡眠"],
+  [16, "Poison Res","毒"],
+  [17, "Stun Res","気絶"],
+  [18, "X Resistance","※耐性"],
+  [19, "Wide-Area+3/Medical Sage","広域+3/薬草学"],
+  [20, "Encourage","鼓舞"],
+  [21, "Bond/Assistance","絆/支援"],
+  [22, "Reinforcement/Incitement","喝/煽動"]
+]
  
 const INGREDIENTS = [
    [8943, "EF22", "22EF", "Bright Grain", "後光穀"],

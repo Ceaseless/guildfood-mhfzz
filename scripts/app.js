@@ -3,6 +3,7 @@ const $ = id => document.getElementById(id);
 
 // TODO: This is stupid. Bake data.js to objects rather than [lists]
 const meals = MEALS.map(([id, en, ja]) => ({ id, en, ja }));
+const meal_hints = MEAL_HINTS.map(([id, en, ja]) => ({ id, en, ja }));
 const ingredientsById = new Map(INGREDIENTS.map(([id, shex, bhex, en, ja]) => [id, { bhex, en, ja }]));
 const recipesByMeal = new Map();
 for (const [mealId, base, aux1, aux2, aux3, mealDiff, baseMod, finalDiff, greatFail, fail, succ, greatSucc] of RECIPES) {
@@ -46,7 +47,7 @@ function makeSkillCell(id) {
 function fillMealSelect() {
   const meal = $("meal");
   meal.innerHTML = `<option value="">${translated("selectMeal")}</option>` +
-    meals.map(m => `<option value="${m.id}">${label(m)}</option>`).join("");
+    meals.map(m => `<option value="${m.id}">${label(m)} (${label(meal_hints[m.id])})</option>`).join("");
   meal.value = currentMealId ?? "";
 }
 
@@ -78,7 +79,7 @@ function init() {
   });
   $("lang").addEventListener("click", toggleLanguage);
   setStatus(`${meals.length} meals, ${ingredientsById.size} ingredients, ${RECIPES.length} recipes.`);
+  fillMealSelect();
 }
 
 init();
-fillMealSelect();
