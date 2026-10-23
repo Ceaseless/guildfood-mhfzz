@@ -17,6 +17,7 @@ for (const list of recipesByMeal.values()) list.sort((a, b) => a.finalDiff - b.f
 
 let lang = "en";          // "en" or "ja"
 let currentMealId = null; // selected meal id (0 is yaminabe, so we have to use null)
+let ferias = "https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?"; // url to en or ja ferias
 
 const translated = key => STRINGS[lang][key];
  
@@ -35,7 +36,7 @@ function setStatus(msg) { $("status").textContent = msg; }
 function makeIngredientCell(id) {
   if (id == null) return '<td class="none">—</td>';
   const ing = ingredientsById.get(id);
-  return ing ? `<td><a href="https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?${ing.bhex}">${label(ing)}</a></td>` : `<td class="none">Unknown (${id})</td>`;
+  return ing ? `<td><a href="${ferias}${ing.bhex}">${label(ing)}</a></td>` : `<td class="none">Unknown (${id})</td>`;
 }
 
 function makeSkillCell(id) {
@@ -66,6 +67,7 @@ function showRecipes() {
 
 function toggleLanguage() {
   lang = lang === "en" ? "ja" : "en";
+  ferias = lang === "ja" ? "https://ferias.life.coocan.jp/sozai/sozai.htm?" : "https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?";
   applyLanguage();
   $("lang").setAttribute("aria-pressed", String(lang === "ja"));
   fillMealSelect();
