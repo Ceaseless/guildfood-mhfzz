@@ -166,8 +166,8 @@ const MEAL_HINTS = [
   [15, "Sleep Res","睡眠"],
   [16, "Poison Res","毒"],
   [17, "Stun Res","気絶"],
-  [18, "X Resistance","※耐性"],
-  [19, "Wide-Area+3/Medical Sage","広域+3/薬草学"],
+  [18, "Element Res","属性耐性"],
+  [19, "Wide-Area/Medical Sage","広域/薬草学"],
   [20, "Encourage","鼓舞"],
   [21, "Bond/Assistance","絆/支援"],
   [22, "Reinforcement/Incitement","喝/煽動"]
