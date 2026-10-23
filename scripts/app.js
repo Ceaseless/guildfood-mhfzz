@@ -4,7 +4,7 @@ const STRINGS = {
     title: "Guild Food Recipes",
     meal: "Meal",
     selectMeal: "Select a meal…",
-    toggle: "JPN",
+    toggle: "JP",
     base: "Base ingredient",
     aux1: "Auxiliary 1",
     aux2: "Auxiliary 2",

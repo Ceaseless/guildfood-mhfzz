@@ -5,6 +5,7 @@
 // RECIPES:     [mealId, baseId, aux1Id, aux2Id, aux3Id, mealDifficulty, baseModifier, finalDifficulty, greatFailure, failure, success, greatSuccess]
 // Columns: ID, Name, JPName
 const SKILLS = [
+  [0, "Random", "ランダム"],
   [1, "Paralysis Halved", "麻痺半減"],
   [2, "Paralysis Negated", "麻痺無効"],
   [4, "Sleep Halved", "睡眠半減"],
@@ -134,6 +135,7 @@ const INGREDIENTS = [
 ];
 
 const RECIPES = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0],
   [1,  8943,  8962,  8973,  8978,  5,  0,  9,  76,  23,  422,  423],
   [1,  8943,  8961,  8973,  8978,  5,  0,  9,  76,  23,  422,  423],
   [1,  8943,  8955,  8973,  8978,  5,  0,  9,  76,  23,  422,  423],
