@@ -10,6 +10,10 @@ const STRINGS = {
     aux2: "Auxiliary 2",
     aux3: "Auxiliary 3",
     finalDiff: "Difficulty",
+    greatFail: "Great Failure",
+    fail: "Failure",
+    succ: "Success",
+    greatSucc: "Great Success",    
     unknown: id => `Unknown (${id})`,
     summary: (m, i, r) => `${m} meals, ${i} ingredients, ${r} recipes.`,
     count: (n, name) => `${n} recipe${n === 1 ? "" : "s"} for ${name}.`,
@@ -25,6 +29,10 @@ const STRINGS = {
     aux2: "補助食材2",
     aux3: "補助食材3",
     finalDiff: "料理難易度",
+    greatFail: "大失敗",
+    fail: "失敗",
+    succ: "成功",
+    greatSucc: "大成功", 
     unknown: id => `不明 (${id})`,
     summary: (m, i, r) => `メニュー ${m}件、食材 ${i}件、レシピ ${r}件`,
     count: (n, name) => `${name}のレシピ ${n}件`,
@@ -40,10 +48,11 @@ const $ = id => document.getElementById(id);
 const meals = MEALS.map(([id, en, ja]) => ({ id, en, ja }));
 const ingredientsById = new Map(INGREDIENTS.map(([id, shex, bhex, en, ja]) => [id, { bhex, en, ja }]));
 const recipesByMeal = new Map();
-for (const [mealId, base, aux1, aux2, aux3, mealDiff, baseMod, finalDiff] of RECIPES) {
+for (const [mealId, base, aux1, aux2, aux3, mealDiff, baseMod, finalDiff, greatFail, fail, succ, greatSucc] of RECIPES) {
   if (!recipesByMeal.has(mealId)) recipesByMeal.set(mealId, []);
-  recipesByMeal.get(mealId).push({ ingredients: [base, aux1, aux2, aux3], mealDiff, baseMod, finalDiff });
+  recipesByMeal.get(mealId).push({ ingredients: [base, aux1, aux2, aux3], mealDiff, baseMod, finalDiff, skills: [greatFail, fail, succ, greatSucc] });
 }
+const skillsById = new Map(SKILLS.map(([id, en, ja]) => [id, {en, ja}]));
 
 // Sort once, ascending by difficulty
 for (const list of recipesByMeal.values()) list.sort((a, b) => a.finalDiff - b.finalDiff);
@@ -71,6 +80,12 @@ function makeIngredientCell(id) {
   return ing ? `<td><a href="https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?${ing.bhex}">${label(ing)}</a></td>` : `<td class="none">Unknown (${id})</td>`;
 }
 
+function makeSkillCell(id) {
+  if (id == null) return '<td class="none">—</td>';
+  const skill = skillsById.get(id);
+  return skill ? `<td>${label(skill)}</td>` : `<td class="none">Unknown (${id})</td>`;
+}
+
 function fillMealSelect() {
   const meal = $("meal");
   meal.innerHTML = `<option value="">${t("selectMeal")}</option>` +
@@ -86,6 +101,7 @@ function showRecipes() {
   $("rows").innerHTML = list.map(r => `<tr>
     ${r.ingredients.map(makeIngredientCell).join("")}
     <td class="num final">${r.finalDiff}</td>
+    ${r.skills.map(makeSkillCell).join("")}
   </tr>`).join("");
   setStatus(list.length ? t("count")(list.length, name) : t("none")(name));
 }
