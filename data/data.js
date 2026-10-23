@@ -198,7 +198,7 @@ const INGREDIENTS = [
   [13692, "7C35", "357C", "Taiko Olive", "太鼓オリーブ"],
   [13693, "7D35", "357D", "Gutsy Meat", "ガッツミート"],
   [8940, "EC22", "22EC", "Miracle Herb", "ミラクルナナクサ"],
-  [8957, "FD22", "22FD", "Bicolour Skimmer", "モノトンボ"],
+  [8957, "FD22", "22FD", "Blk and Wht Drgnfly", "モノトンボ"],
   [8969, "0923", "2309", "Wabisabi Wasabi", "ワビサビワサビ"]
 ];
 

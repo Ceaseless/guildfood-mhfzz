@@ -36,13 +36,13 @@ function setStatus(msg) { $("status").textContent = msg; }
 function makeIngredientCell(id) {
   if (id == null) return '<td class="none">—</td>';
   const ing = ingredientsById.get(id);
-  return ing ? `<td><a href="${ferias}${ing.bhex}">${label(ing)}</a></td>` : `<td class="none">Unknown (${id})</td>`;
+  return ing ? `<td><a href="${ferias}${ing.bhex}">${label(ing)}</a></td>` : `<td class="none">${translated("unknown")(id)}</td>`;
 }
 
 function makeSkillCell(id) {
   if (id == null) return '<td class="none">—</td>';
   const skill = skillsById.get(id);
-  return skill ? `<td>${label(skill)}</td>` : `<td class="none">Unknown (${id})</td>`;
+  return skill ? `<td>${label(skill)}</td>` : `<td class="none">${translated("unknown")(id)}</td>`;
 }
 
 function fillMealSelect() {
