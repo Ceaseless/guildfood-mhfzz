@@ -36,7 +36,7 @@ function setStatus(msg) { $("status").textContent = msg; }
 function makeIngredientCell(id) {
   if (id == null) return '<td class="none">—</td>';
   const ing = ingredientsById.get(id);
-  return ing ? `<td><a href="${ferias}${ing.bhex}">${label(ing)}</a></td>` : `<td class="none">${translated("unknown")(id)}</td>`;
+  return ing ? `<td><a href="${ferias}${ing.bhex}" target="_blank">${label(ing)}</a></td>` : `<td class="none">${translated("unknown")(id)}</td>`;
 }
 
 function makeSkillCell(id) {
