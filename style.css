@@ -6,7 +6,6 @@
   --line: #e4ded4;
   --accent: #2f6f5e;
   --accent-soft: #e3f0ec;
-  --error: #a2452b;
   --highlight: #87bb28;
   --link: #4c79da;
   color-scheme: light;
@@ -14,16 +13,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14191e;
-    --surface: #1d252c;
+    --bg: #161923;
+    --surface: #262c3d;
     --text: #e6ecf0;
-    --muted: #94a3af;
-    --line: #33414c;
+    --muted: #bcbdd0;
+    --line: #3e4f5c;
     --accent: #5fb4d0;
-    --accent-soft: #0d161b;
-    --error: #e08a6d;
+    --accent-soft: #181b24;
     --highlight: #b7fa3a;
-    --link: #5485ee;
+    --link: #5c8aee;
     color-scheme: dark;
   }
 }
@@ -46,11 +44,8 @@ main {
 }
 
 .head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   gap: 8px 50px;
-  margin-bottom: 4px
+  margin-bottom: 10px
 }
 
 h1 {
@@ -93,7 +88,8 @@ label {
 select {
   font: inherit;
   font-size: 1rem;
-  min-width: 260px;
+  min-width: 30%;
+  max-width: 30%;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -106,22 +102,6 @@ select:focus-visible {
   outline-offset: 1px
 }
 
-#status {
-  margin: 0 0 12px;
-  font-size: .9rem;
-  color: var(--muted)
-}
-
-#status.err {
-  color: var(--error)
-}
-
-.wrap {
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  background: var(--surface)
-}
-
 button {
   font: inherit;
   font-size: 1rem;
@@ -129,10 +109,9 @@ button {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 8px 14px;
+  padding: 8px 10px;
   cursor: pointer;
-  width: 80px;
-  height: 40px;
+  width: 60px;
 }
 
 button:hover {
@@ -142,6 +121,18 @@ button:hover {
 button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px
+}
+
+#status {
+  margin: 0 0 12px;
+  font-size: .9rem;
+  color: var(--muted)
+}
+
+.wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: var(--surface)
 }
 
 table {

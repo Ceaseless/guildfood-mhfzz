@@ -34,7 +34,7 @@ const STRINGS = {
     succ: "成功",
     greatSucc: "大成功", 
     unknown: id => `不明 (${id})`,
-    summary: (m, i, r) => `メニュー ${m}件、食材 ${i}件、レシピ ${r}件`,
+    summary: (m, i, r) => `メニュー ${m}件、食材 ${i}件、レシピ ${r}件`, // Should this be 個?
     count: (n, name) => `${name}のレシピ ${n}件`,
     none: name => `${name}のレシピはありません。`,
   },
@@ -118,8 +118,6 @@ const SKILLS = [
   [471, "Incitement", "煽動"],
   [481, "Assistance", "支援"],
 ];
-
-
 
 const MEALS = [
   [0, "Guild's Yaminabe", "猟団闇鍋"],
