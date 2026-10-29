@@ -62,7 +62,9 @@ h1 {
 }
 
 .bar {
-  margin-bottom: 16px
+  display: flex;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 a {
@@ -88,8 +90,10 @@ label {
 select {
   font: inherit;
   font-size: 1rem;
-  min-width: 30%;
-  max-width: 30%;
+  flex-basis: 300px;
+  flex-shrink: 1;
+  /* min-width: 30%;
+  max-width: 30%; */
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -111,7 +115,9 @@ button {
   border-radius: 6px;
   padding: 8px 10px;
   cursor: pointer;
-  width: 60px;
+  /* width: 60px; */
+  flex-basis: 60px;
+  
 }
 
 button:hover {
@@ -139,12 +145,12 @@ table {
   border-collapse: collapse;
   width: 100%;
   min-width: 720px;
-  font-variant-numeric: tabular-nums
+  font-variant-numeric: tabular-nums;
 }
 
 th,
 td {
-  padding: 8px 12px;
+  padding: 8px 10px;
   text-align: left;
   border-bottom: 1px solid var(--line);
   white-space: nowrap;
