@@ -227,6 +227,7 @@ td.final {
     background: var(--surface);
     border: 1px solid var(--line);
     overflow: hidden;
+    border-bottom: none;  
   }
 
   tbody tr:hover {
