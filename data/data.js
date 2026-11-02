@@ -1,4 +1,4 @@
-// UI text. Values are strings, or functions for text with variables.
+// UI text
 const STRINGS = {
   en: {
     title: "Guild Food Recipes",
@@ -15,8 +15,8 @@ const STRINGS = {
     succ: "Success",
     greatSucc: "Great Success",    
     unknown: id => `Unknown (${id})`,
-    summary: (m, i, r) => `${m} meals, ${i} ingredients, ${r} recipes.`,
-    count: (n, name) => `${n} recipe${n === 1 ? "" : "s"} for ${name}.`,
+    summary: (m, i, r) => `${m} meals, ${i} ingredients, ${r} recipes`,
+    count: (n, name) => `${n} recipe${n === 1 ? "" : "s"} for ${name}`,
     none: name => `No recipes found for ${name}.`,
   },
   ja: {
@@ -39,6 +39,9 @@ const STRINGS = {
     none: name => `${name}のレシピはありません。`,
   },
 };
+
+const INGREDIENT_KEYS = ["base", "aux1", "aux2", "aux3"];
+const SKILL_KEYS = ["greatFail", "fail", "succ", "greatSucc"];
 
 // This is easier than loading from files (Probably should be objects though)
 // SKILLS:      [id, englishName, japaneseName]

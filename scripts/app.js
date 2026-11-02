@@ -10,7 +10,7 @@ for (const [mealId, base, aux1, aux2, aux3, mealDiff, baseMod, finalDiff, greatF
   if (!recipesByMeal.has(mealId)) recipesByMeal.set(mealId, []);
   recipesByMeal.get(mealId).push({ ingredients: [base, aux1, aux2, aux3], mealDiff, baseMod, finalDiff, skills: [greatFail, fail, succ, greatSucc] });
 }
-const skillsById = new Map(SKILLS.map(([id, en, ja]) => [id, {en, ja}]));
+const skillsById = new Map(SKILLS.map(([id, en, ja]) => [id, { en, ja }]));
 
 // Sort once, ascending by difficulty
 for (const list of recipesByMeal.values()) list.sort((a, b) => a.finalDiff - b.finalDiff);
@@ -20,7 +20,7 @@ let currentMealId = null; // selected meal id (0 is yaminabe, so we have to use 
 let ferias = "https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?"; // url to en or ja ferias
 
 const translated = key => STRINGS[lang][key];
- 
+
 function applyLanguage() {
   document.documentElement.lang = lang;
   document.title = translated("title");
@@ -33,16 +33,23 @@ const label = o => (lang === "ja" && o.ja) || o.en;
 
 function setStatus(msg) { $("status").textContent = msg; }
 
-function makeIngredientCell(id) {
-  if (id == null) return '<td class="none">—</td>';
+
+function makeIngredientCell(id, i) {
+  const attrs = `data-label="${translated(INGREDIENT_KEYS[i])}"`;
+  if (id == null) return `<td class="none empty ing" ${attrs}>-</td>`;
   const ing = ingredientsById.get(id);
-  return ing ? `<td><a href="${ferias}${ing.bhex}" target="_blank">${label(ing)}</a></td>` : `<td class="none">${translated("unknown")(id)}</td>`;
+  return ing
+    ? `<td class="ing" ${attrs}><a href="${ferias}${ing.bhex}" target="_blank">${label(ing)}</a></td>`
+    : `<td class="none ing" ${attrs}>${translated("unknown")(id)}</td>`;
 }
 
-function makeSkillCell(id) {
-  if (id == null) return '<td class="none">—</td>';
+function makeSkillCell(id, i) {
+  const attrs = `data-label="${translated(SKILL_KEYS[i])}"`;
+  if (id == null) return `<td class="none empty skill" ${attrs}>-</td>`;
   const skill = skillsById.get(id);
-  return skill ? `<td>${label(skill)}</td>` : `<td class="none">${translated("unknown")(id)}</td>`;
+  return skill
+    ? `<td class="skill" ${attrs}>${label(skill)}</td>`
+    : `<td class="none skill" ${attrs}>${translated("unknown")(id)}</td>`;
 }
 
 function fillMealSelect() {
@@ -59,7 +66,7 @@ function showRecipes() {
   const name = label(meal);
   $("rows").innerHTML = list.map(r => `<tr>
     ${r.ingredients.map(makeIngredientCell).join("")}
-    <td class="num final">${r.finalDiff}</td>
+    <td class="num final" data-label="${translated("finalDiff")}">${r.finalDiff}</td>
     ${r.skills.map(makeSkillCell).join("")}
   </tr>`).join("");
   setStatus(list.length ? translated("count")(list.length, name) : translated("none")(name));
@@ -80,7 +87,7 @@ function init() {
     showRecipes();
   });
   $("lang").addEventListener("click", toggleLanguage);
-  setStatus(`${meals.length} meals, ${ingredientsById.size} ingredients, ${RECIPES.length} recipes.`);
+  setStatus(`${meals.length} meals, ${ingredientsById.size} ingredients, ${RECIPES.length} recipes`);
   fillMealSelect();
 }
 
