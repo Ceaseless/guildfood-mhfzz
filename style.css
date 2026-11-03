@@ -254,30 +254,19 @@ td.final {
     display: none
   }
 
-  /* base ingredient and difficulty span full card width */
+  /* base ingredient uses full card width */
   td.ing:first-child {
     grid-column: 1 / -1;
     font-size: 1.05rem;
   }
 
   td.ing:first-child::before {
+    font-weight: 600;
     color: var(--highlight)
   }
 
-  td.num,
-  td.final {
-    text-align: left
-  }
-
-  td.final {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  td.final::before {
-    font-size: .95rem
+  td.final.num {
+    font-size: 1.05rem;
   }
 
   td.skill {
