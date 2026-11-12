@@ -15,7 +15,7 @@ const skillsById = new Map(SKILLS.map(([id, en, ja]) => [id, { en, ja }]));
 // Sort once, ascending by difficulty
 for (const list of recipesByMeal.values()) list.sort((a, b) => a.finalDiff - b.finalDiff);
 
-let lang = "en";          // "en" or "ja"
+let lang = LANG_EN;          // "en" or "ja"
 let currentMealId = null; // selected meal id (0 is yaminabe, so we have to use null)
 let ferias = "https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?"; // url to en or ja ferias
 
@@ -29,7 +29,7 @@ function applyLanguage() {
 
 
 // Fallback
-const label = o => (lang === "ja" && o.ja) || o.en;
+const label = o => (lang === LANG_JA && o.ja) || o.en;
 
 function setStatus(msg) { $("status").textContent = msg; }
 
@@ -66,17 +66,17 @@ function showRecipes() {
   const name = label(meal);
   $("rows").innerHTML = list.map(r => `<tr>
     ${r.ingredients.map(makeIngredientCell).join("")}
-    <td class="num final" data-label="${translated("finalDiff")}">${r.finalDiff}</td>
+    <td class="num difficulty" data-label="${translated("finalDiff")}">${r.finalDiff}</td>
     ${r.skills.map(makeSkillCell).join("")}
   </tr>`).join("");
   setStatus(list.length ? translated("count")(list.length, name) : translated("none")(name));
 }
 
 function toggleLanguage() {
-  lang = lang === "en" ? "ja" : "en";
-  ferias = lang === "ja" ? "https://ferias.life.coocan.jp/sozai/sozai.htm?" : "https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?";
+  lang = lang === LANG_EN ? LANG_JA : LANG_EN;
+  ferias = lang === LANG_JA ? "https://ferias.life.coocan.jp/sozai/sozai.htm?" : "https://xl3lackout.github.io/MHFZ-Ferias-English-Project/sozai/sozai.htm?";
   applyLanguage();
-  $("lang").setAttribute("aria-pressed", String(lang === "ja"));
+  $("lang").setAttribute("aria-pressed", String(lang === LANG_JA));
   fillMealSelect();
   showRecipes();
 }

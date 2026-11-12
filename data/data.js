@@ -40,6 +40,9 @@ const STRINGS = {
   },
 };
 
+const LANG_JA = "ja";
+const LANG_EN = "en";
+
 const INGREDIENT_KEYS = ["base", "aux1", "aux2", "aux3"];
 const SKILL_KEYS = ["greatFail", "fail", "succ", "greatSucc"];
 
@@ -175,7 +178,7 @@ const MEAL_HINTS = [
 ]
  
 const INGREDIENTS = [
-   [8943, "EF22", "22EF", "Bright Grain", "後光穀"],
+  [8943, "EF22", "22EF", "Bright Grain", "後光穀"],
   [8968, "0823", "2308", "Snow Powder", "粉雪粉"],
   [8955, "FB22", "22FB", "Goemon Frog", "ゴエモンガエル"],
   [8970, "0A23", "230A", "Dangerous Melon", "デンジャラスイカ"],
@@ -183,23 +186,23 @@ const INGREDIENTS = [
   [8944, "F022", "22F0", "Millenium Peach", "千成桃"],
   [8946, "F222", "22F2", "Iron Cannon Fish", "クロテッポウ"],
   [8960, "0023", "2300", "Deep Sea Chub", "深海モロコ"],
-  [8945, "F122", "22F1", "Monochrome Mushroom", "モノクロキノコ"],
+  [8945, "F122", "22F1", "Monochrome Mushroom", "モノクロキノコ"],  // CE: Monochrome Shroom
   [8961, "0123", "2301", "Lava King Crab", "溶岩タラバ"],
   [8951, "F722", "22F7", "Ancient Algae", "ハジマリモ"],
   [8941, "ED22", "22ED", "Rainbow Mint", "虹色ミント"],
   [8967, "0723", "2307", "Acid Pepper", "アミノサンショウ"],
   [8953, "F922", "22F9", "Snow Kiwi", "ユキーウイ"],
-  [8959, "FF22", "22FF", "Ravenous Clam", "ハラモチ貝"],
+  [8959, "FF22", "22FF", "Large Blly Shlfish", "ハラモチ貝"], // CE: Ravnous Clam
   [8972, "0C23", "230C", "Mimic Vines", "ツルモドキ"],
-  [8962, "0223", "2302", "Arctic Salmon", "砕氷サーモン"],
+  [8962, "0223", "2302", "Ice Salmon", "砕氷サーモン"],  // CE: Arctic Salmon
   [8973, "0D23", "230D", "Demon Pepper", "鬼面ハバネロ"],
   [8956, "FC22", "22FC", "Magma Mango", "マグマンゴー"],
-  [8978, "1223", "2312", "Ultra Vanilla Bean", "ドッキリハーブ"],
+  [8978, "1223", "2312", "Whole Vanilla", "ドッキリハーブ"], // CE: Ultra Vanilla Bean
   [8942, "EE22", "22EE", "Onion Sticks", "棍棒ネギ"],
   [13692, "7C35", "357C", "Taiko Olive", "太鼓オリーブ"],
   [13693, "7D35", "357D", "Gutsy Meat", "ガッツミート"],
   [8940, "EC22", "22EC", "Miracle Herb", "ミラクルナナクサ"],
-  [8957, "FD22", "22FD", "Blk and Wht Drgnfly", "モノトンボ"],
+  [8957, "FD22", "22FD", "Blk and Wht Drgnfly", "モノトンボ"],  // CE: Bicolour Skimmer
   [8969, "0923", "2309", "Wabisabi Wasabi", "ワビサビワサビ"]
 ];
 

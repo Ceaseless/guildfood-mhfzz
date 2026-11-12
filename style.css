@@ -5,7 +5,7 @@
   --muted: #7a7268;
   --line: #e4ded4;
   --accent: #2f6f5e;
-  --accent-soft: #e3f0ec;
+  --hover: #e3f0ec;
   --highlight: #BA8E23;
   --link: #4c79da;
   color-scheme: light;
@@ -19,7 +19,7 @@
     --muted: #bcbdd0;
     --line: #3e4f5c;
     --accent: #5fb4d0;
-    --accent-soft: #181b24;
+    --hover: #181b24;
     --highlight: #b7fa3a;
     --link: #5c8aee;
     color-scheme: dark;
@@ -34,7 +34,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "IBM Plex Sans", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  font-family:  "IBM Plex Sans", "Arial", system-ui, sans-serif;
 }
 
 main {
@@ -52,7 +52,6 @@ h1 {
   font-size: 1.7rem;
   margin: 0;
   max-width: 100%;
-  letter-spacing: -.01em
 }
 
 .sub {
@@ -122,7 +121,7 @@ button:hover {
 }
 
 button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 1px solid var(--accent);
   outline-offset: 1px
 }
 
@@ -164,7 +163,7 @@ tbody tr:last-child td {
 }
 
 tbody tr:hover {
-  background: var(--accent-soft)
+  background: var(--hover)
 }
 
 th.base,
@@ -181,7 +180,7 @@ td.none {
   color: var(--muted)
 }
 
-td.final {
+td.difficulty {
   font-weight: 700
 }
 
