@@ -34,8 +34,8 @@ const STRINGS = {
     succ: "成功",
     greatSucc: "大成功", 
     unknown: id => `不明 (${id})`,
-    summary: (m, i, r) => `メニュー ${m}件、食材 ${i}件、レシピ ${r}個`,
-    count: (n, name) => `${name}のレシピ ${n}件`,
+    summary: (m, i, r) => `メニュー ${m}個、食材 ${i}個、レシピ ${r}個`,
+    count: (n, name) => `${name}のレシピ ${n}個`,
     none: name => `${name}のレシピはありません。`,
   },
 };
